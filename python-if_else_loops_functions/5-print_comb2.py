@@ -6,6 +6,6 @@ for i in range(0, 100):
         num = f"{i}"
 
     if i < 99:
-        print(num, end=", ")
+        print("{}".format(num), end=", ")
     else:
-        print(num)
+        print("{}".format(num))
