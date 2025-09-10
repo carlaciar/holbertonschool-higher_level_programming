@@ -5,5 +5,5 @@ def search_replace(my_list, search, replace):
     for index, item in enumerate(copy):
         if item == search:
             copy[index] = replace
-    
+
     return copy
