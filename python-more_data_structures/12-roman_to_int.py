@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     # If the input is not a string or is None, return 0
-    if roman_string == "" or roman_string == None:
+    if not isinstance(roman_string, str) or roman_string is None:
         return 0
-    
+
     # Dictionary mapping Roman numeral symbols to their integer values
     roman_map = {
         "I": 1, "V": 5, "X": 10, "L": 50,
