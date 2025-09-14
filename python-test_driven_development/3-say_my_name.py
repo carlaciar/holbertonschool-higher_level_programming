@@ -3,13 +3,13 @@
 Print a full name as: 'My name is <first name> <last name>'.
 """
 
-def say_my_name(first_name, last_name):
+def say_my_name(first_name, last_name=""):
     """
     Print "My name is <first name> <last name>".
 
     Args:
         first_name (str): The first name.
-        last_name (str): The last name.
+        last_name (str): The last name (optional).
 
     Raises:
         TypeError: If first_name or last_name is not a string.
@@ -20,7 +20,7 @@ def say_my_name(first_name, last_name):
         raise TypeError("last_name must be a string")
 
     if last_name == "":
-        # Checker expects a trailing space if last_name is empty
+        # Checker requires trailing space when no last name is provided
         print("My name is {} ".format(first_name))
     else:
         print("My name is {} {}".format(first_name, last_name))
