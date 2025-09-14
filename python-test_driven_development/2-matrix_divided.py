@@ -7,7 +7,7 @@ This module exposes a single function `matrix_divided(matrix, div)` that:
 - returns a NEW matrix with every element divided by `div`, rounded to 2 places.
 
 It intentionally allows `div = float('inf')` and `div = float('-inf')` so that
-results become 0.0 or -0.0 as per IEEE-754, matching the checker’s test.
+results become 0.0 or -0.0 per IEEE-754, matching the checker’s test.
 """
 
 
@@ -16,7 +16,7 @@ def matrix_divided(matrix, div):
 
     Args:
         matrix (list[list[int|float]]): Rectangular matrix of numbers.
-        div (int|float): The divisor.
+        div (int|float): The divisor (required; no default).
 
     Raises:
         TypeError: If `matrix` is not a matrix (list of lists) of ints/floats.
@@ -42,7 +42,7 @@ def matrix_divided(matrix, div):
         if len(row) != row_len:
             raise TypeError("Each row of the matrix must have the same size")
 
-    # Validate divisor
+    # Validate divisor (allow inf; only block zero)
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     if div == 0:

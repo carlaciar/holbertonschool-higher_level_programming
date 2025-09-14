@@ -11,6 +11,12 @@
 >>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2)
 [[0.75, 1.25], [1.75, 2.25]]
 
+# Missing argument (checker expects Python's built-in error message)
+>>> matrix_divided([[1, 2], [3, 4]])
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
 # Shape and type validation
 >>> matrix_divided([[1, 2], [3, 4, 5]], 2)
 Traceback (most recent call last):
@@ -33,6 +39,6 @@ Traceback (most recent call last):
 ...
 TypeError: div must be a number
 
-# Infinity divisor (the checker’s special case)
+# Infinity divisor (special case)
 >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
 [[0.0, 0.0], [0.0, 0.0]]
