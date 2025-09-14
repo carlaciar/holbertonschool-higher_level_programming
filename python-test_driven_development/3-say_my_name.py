@@ -23,10 +23,10 @@ def say_my_name(*args):
         first_name, last_name = args
     else:
         raise TypeError(
-            "say_my_name() takes from 1 to " \
-            "2 positional arguments but {} were given"
-            .format(argc)
+            "say_my_name() takes from 1 to 2 positional arguments "
+            "but {} were given".format(argc)
         )
+
 
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
