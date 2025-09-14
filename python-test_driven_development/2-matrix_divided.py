@@ -4,7 +4,8 @@
 This module exposes a single function `matrix_divided(matrix, div)` that:
 - validates `matrix` is a list of lists of ints/floats with equal row sizes,
 - validates `div` is a number and not zero,
-- returns a NEW matrix with every element divided by `div`, rounded to 2 places.
+- returns a NEW matrix with every element divided by `div`,
+rounded to 2 places.
 
 It intentionally allows `div = float('inf')` and `div = float('-inf')` so that
 results become 0.0 or -0.0 per IEEE-754, matching the checker’s test.
@@ -28,10 +29,11 @@ def matrix_divided(matrix, div):
         list[list[float]]: New matrix with elements rounded to 2 decimals.
     """
     # Validate matrix structure and element types
-    if (not isinstance(matrix, list) or
-        not all(isinstance(row, list) for row in matrix) or
-        not all(all(isinstance(x, (int, float)) for x in row) for row in matrix)):
+    if (not isinstance(matrix, list)
+            or not all(isinstance(row, list) for row in matrix)
+            or not all(all(isinstance(x, (int, float)) for x in row) for row in matrix)):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+
 
     # Validate uniform row length
     if len(matrix) == 0:
