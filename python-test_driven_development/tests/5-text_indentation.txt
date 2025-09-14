@@ -1,4 +1,6 @@
 >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Happy path
 >>> text_indentation("Hello. How are you?  I am fine: thanks.")
 Hello.
 <BLANKLINE>
@@ -9,6 +11,7 @@ I am fine:
 thanks.
 <BLANKLINE>
 
+# Another happy path
 >>> text_indentation("A:  B?   C.")
 A:
 <BLANKLINE>
@@ -17,7 +20,14 @@ B?
 C.
 <BLANKLINE>
 
+# Wrong type
 >>> text_indentation(123)
 Traceback (most recent call last):
 ...
 TypeError: text must be a string
+
+# MISSING ARGUMENT (required by checker)
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
