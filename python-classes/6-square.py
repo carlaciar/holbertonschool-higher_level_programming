@@ -60,6 +60,7 @@ class Square:
     def my_print(self):
         if self.__size == 0:
             print()
+            return
 
         for line in range(self.__position[1]):
             print()
