@@ -8,6 +8,7 @@ The Square class provides:
 - A setter to set size with type and value validation
 - Instantiation with optional size (default is 0)
 - A public method area() that returns the square area
+- A method to print # by the area
 """
 
 
