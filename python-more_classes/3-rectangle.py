@@ -8,14 +8,16 @@ The Rectangle class provides:
 - A setter to set width and height with type and value validation
 - Instantiation with optional width and height (default is 0)
 - A public method area() that returns the rectangle area
-- A public method area() that returns the square perimeter
+- A public method perimeter() that returns the square perimeter
+- A public method string that returns a string of # as a rectangle
 """
 
 
 class Rectangle:
     """
     Defines a square with a private width and height,
-    and an area and perimeter method"""
+    and an area and perimeter method,
+    and prints # as a rectangle"""
 
     def __init__(self, width=0, height=0):
         self.width = width
@@ -60,3 +62,13 @@ class Rectangle:
 
         else:
             return 2 * (int(self.__width) + int(self.__height))
+
+    def __str__(self):
+        if self.width == 0 or self.height == 0:
+            return ""
+
+        else:
+            hash = []
+            for row in range(self.__height):
+                hash.append("#" * (self.__width))
+            return "\n".join(hash)
