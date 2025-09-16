@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 """
-This module defines an empty class Rectangle.
+This module defines the Rectangle class.
+
+The Rectangle class provides:
+- A private instance attribute: width and height
+- A property to retrieve width and height
+- A setter to set width and height with type and value validation
+- Instantiation with optional width and height (default is 0)
 """
 
 
 class Rectangle:
-    """An empty class that defines a rectangle."""
+    """Defines a square with a private width and height"""
 
     def __init__(self, width=0, height=0):
         self.width = width
