@@ -1,8 +1,8 @@
-# Test present: integer_validator()
-# Test present: integer_validator("age")
-# Test present: integer_validator("age", (4,))
-# Test present: integer_validator("age", [3])
-# Test present: integer_validator("age", True)
+Test present: integer_validator()
+Test present: integer_validator("age")
+Test present: integer_validator("age", (4,))
+Test present: integer_validator("age", [3])
+Test present: integer_validator("age", True)
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
