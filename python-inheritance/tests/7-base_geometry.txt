@@ -4,6 +4,7 @@ Test present: integer_validator("age", (4,))
 Test present: integer_validator("age", [3])
 Test present: integer_validator("age", True)
 Test present: integer_validator("age", {3, 4})
+Test present: integer_validator("age", None)
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
@@ -61,6 +62,12 @@ TypeError: age must be an integer
 
 # Invalid type: float instead of int
 >>> bg.integer_validator("age", 3.0)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+# Invalid type: None instead of int
+>>> bg.integer_validator("age", None)
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
