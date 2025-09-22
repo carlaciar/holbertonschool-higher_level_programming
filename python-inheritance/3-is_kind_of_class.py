@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module defines a function to check if an object
-is an instance or if the object is an instance of a 
+is an instance or if the object is an instance of a
 class that inherited from, the specified class
 """
 
