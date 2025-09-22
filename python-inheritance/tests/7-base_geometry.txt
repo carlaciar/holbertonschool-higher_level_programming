@@ -48,6 +48,9 @@ TypeError: age must be an integer
 
 # Bool is a subclass of int and > 0, so accepted (no output expected)
 >>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
 
 # Invalid value: zero
 >>> bg.integer_validator("age", 0)
