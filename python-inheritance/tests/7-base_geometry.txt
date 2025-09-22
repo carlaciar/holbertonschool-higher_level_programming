@@ -2,6 +2,7 @@
 # Test present: integer_validator("age")
 # Test present: integer_validator("age", (4,))
 # Test present: integer_validator("age", [3])
+# Test present: integer_validator("age", True)
 
 # Import the class
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
@@ -47,6 +48,9 @@ TypeError: age must be an integer
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
+
+# Bool is technically a subclass of int, so it should be accepted
+>>> bg.integer_validator("age", True)
 
 # Invalid value: zero
 >>> bg.integer_validator("age", 0)
