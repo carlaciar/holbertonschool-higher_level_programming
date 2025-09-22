@@ -1,5 +1,6 @@
 >>> MyList = __import__('1-my_list').MyList
 
+# --- Basic test ---
 >>> my_list = MyList()
 >>> my_list.append(3)
 >>> my_list.append(1)
@@ -9,11 +10,26 @@
 [3, 1, 4, 2]
 >>> my_list.print_sorted()
 [1, 2, 3, 4]
+>>> print(my_list)   # original list should not change
+[3, 1, 4, 2]
 
+# --- Negative number test ---
 >>> my_list = MyList([3, -1, 2])
 >>> my_list.print_sorted()
 [-1, 2, 3]
+>>> print(my_list)   # confirm list is unchanged
+[3, -1, 2]
 
+# --- Empty list test ---
 >>> my_list = MyList()
 >>> my_list.print_sorted()
 []
+
+# --- Return value test (must be None) ---
+>>> my_list = MyList([5, 2, 9])
+>>> result = my_list.print_sorted()
+[2, 5, 9]
+>>> print(result)
+None
+>>> print(my_list)   # confirm list is unchanged
+[5, 2, 9]
