@@ -1,6 +1,7 @@
 # Test present: integer_validator()
 # Test present: integer_validator("age")
 # Test present: integer_validator("age", (4,))
+# Test present: integer_validator("age", [3])
 
 # Import the class
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
@@ -37,6 +38,12 @@ TypeError: name must be an integer
 
 # Invalid type: tuple instead of int
 >>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+# Invalid type: list instead of int
+>>> bg.integer_validator("age", [3])
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
