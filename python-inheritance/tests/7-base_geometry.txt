@@ -3,6 +3,7 @@ Test present: integer_validator("age")
 Test present: integer_validator("age", (4,))
 Test present: integer_validator("age", [3])
 Test present: integer_validator("age", True)
+Test present: integer_validator("age", {3, 4})
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
@@ -42,6 +43,24 @@ TypeError: age must be an integer
 
 # Invalid type: list instead of int
 >>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+# Invalid type: set instead of int
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+# Invalid type: dict instead of int
+>>> bg.integer_validator("age", {"a": 1})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+# Invalid type: float instead of int
+>>> bg.integer_validator("age", 3.0)
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
