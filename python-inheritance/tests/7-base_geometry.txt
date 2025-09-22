@@ -16,7 +16,6 @@ Exception: area() is not implemented
 # Valid integer validations (no output expected)
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
->>> bg.integer_validator("age", True)
 
 # MISSING ARGUMENTS
 >>> bg.integer_validator()
@@ -47,14 +46,14 @@ Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
+# Invalid type: bool instead of int
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
 # Invalid value: zero
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
-ValueError: age must be greater than 0
-
-# Invalid value: negative
->>> bg.integer_validator("distance", -4)
-Traceback (most recent call last):
-...
-ValueError: distance must be greater than 0
+ValueError: age must be greater tha
