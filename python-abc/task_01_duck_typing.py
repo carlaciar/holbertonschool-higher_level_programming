@@ -27,10 +27,11 @@ class Circle(Shape):
     Can calculate its area and perimeter (circumference).
     """
     def __init__(self, radius):
+        if not isinstance(radius, (int, float)):
+            raise TypeError("radius must be a number")
         if radius < 0:
-            self.radius = 0  # or abs(radius)
-        else:
-            self.radius = radius
+            raise ValueError("radius must be >= 0")
+        self.radius = radius
 
     def area(self):
         return math.pi * (self.radius ** 2)
