@@ -18,7 +18,6 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)
 
     def area(self):
-        self.area
         return self.__width * self.__height
 
     def __str__(self):
