@@ -27,6 +27,8 @@ class Circle(Shape):
     Can calculate its area and perimeter (circumference).
     """
     def __init__(self, radius):
+        if radius < 0:
+            raise ValueError("Radius must be >= 0")
         self.radius = radius
 
     def area(self):
