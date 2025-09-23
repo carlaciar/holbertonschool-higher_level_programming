@@ -4,6 +4,7 @@ This module defines the Rectangle class which is inherited from BaseGeometry.
 """
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """
     this class checks validates width and height by integer_validator
