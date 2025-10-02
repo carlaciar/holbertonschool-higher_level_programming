@@ -33,6 +33,5 @@ class CustomObject:
             with open(filename, "rb") as f:
                 loaded = pickle.load(f)
                 return loaded
-        except (FileNotFoundError, pickle.UnpicklingError):
-            # File is missing or broken
+        except (FileNotFoundError, EOFError, pickle.UnpicklingError, OSError):
             return None
