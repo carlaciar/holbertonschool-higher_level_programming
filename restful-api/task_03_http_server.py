@@ -2,11 +2,14 @@
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
+from urllib.parse import urlsplit
 
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/":
+        path = urlsplit(self.path).path
+
+        if path == "/":
             # Send a response status code (200 means "OK")
             self.send_response(200)
 
@@ -19,7 +22,7 @@ class Handler(BaseHTTPRequestHandler):
             # convert string → bytes before sending
             self.wfile.write(message.encode())
 
-        elif self.path == "/data":
+        elif path == "/data":
             dataset = {"name": "John", "age": 30, "city": "New York"}
             body = json.dumps(dataset)
 
@@ -29,7 +32,7 @@ class Handler(BaseHTTPRequestHandler):
 
             self.wfile.write(body.encode())
 
-        elif self.path == "/status":
+        elif path == "/status":
             self.send_response(200)
             self.send_header("Content-type", "text/plain; charset=utf-8")
             self.end_headers()
