@@ -42,7 +42,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "text/plain; charset=utf-8")
             self.end_headers()
-            self.wfile.write(b"404 not found")
+            self.wfile.write(b"404 Not Found")
 
 
 server = HTTPServer(("", 8000), Handler)
