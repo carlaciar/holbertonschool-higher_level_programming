@@ -27,9 +27,6 @@ def status():
 def add_user():
     data = request.get_json(silent=True) or {}
 
-    raw_username = data.get("username")
-    username = (raw_username or "").strip()
-
     username = data.get("username")
     if not username:
         return jsonify({"error": "User not found"}), 400
