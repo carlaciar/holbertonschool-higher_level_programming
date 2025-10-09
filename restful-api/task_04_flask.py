@@ -25,25 +25,15 @@ def status():
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    # Parse JSON even if Content-Type is wrong; don't crash if it's not JSON
-    data = request.get_json(force=True, silent=True)
-    if not isinstance(data, dict) or data is None:
-        # Fallback if the tester sent form-encoded data
-        data = request.form.to_dict() or {}
+    data = request.get_json()
 
-    # Normalize username: must be a non-empty string after trimming
     username = data.get("username")
-    if not isinstance(username, str) or not username.strip():
+    if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    username = username.strip()
+    # if username in users:
+        # return jsonify({"error": "Username already exists"}), 400
 
-    # Duplicate check (exact key after trim)
-    if username in users:
-        return jsonify({"error": "Username already exists"}), 400
-
-    # Store payload under the trimmed username
-    data["username"] = username
     users[username] = data
 
     return jsonify({
