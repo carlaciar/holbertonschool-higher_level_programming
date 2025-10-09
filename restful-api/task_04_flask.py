@@ -27,14 +27,16 @@ def status():
 def add_user():
     data = request.get_json(silent=True) or {}
 
-    username = data.get("username")
-    if not username:
-        return jsonify({"error": "User not found"}), 400
+    raw_username = data.get("username")
+    if raw_username is None or not str(raw_username).strip():
+        return jsonify({"error": "Username is required"}), 400
 
-    if username in users:
-        return jsonify({"error": "Username already exists"}), 400
+    key = str(raw_username).strip().lower()
 
-    users[username] = data
+    if key in users:
+        return jsonify({"error": "User already exists"}), 400
+
+    users[key] = data
 
     return jsonify({
         "message": "User added",
