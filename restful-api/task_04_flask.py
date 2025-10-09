@@ -13,12 +13,6 @@ def home():
     return "Welcome to the Flask API!"
 
 
-@app.route('/data')
-def data():
-    usernames = [user["username"] for user in users.values()]
-    return (usernames)
-
-
 @app.route("/data", methods=["GET"])
 def data():
     return jsonify({"users": list(users.keys())})
