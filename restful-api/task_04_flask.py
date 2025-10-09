@@ -5,6 +5,7 @@ from flask import jsonify
 from flask import request
 
 app = Flask(__name__)
+users = {}
 
 
 @app.route('/')
@@ -18,26 +19,35 @@ def data():
     return (usernames)
 
 
-@app.route('/users/<username>')
-def show_user(username):
-    for user_data in users.values():
-        if user_data["username"] == username:
-            return jsonify(user_data)
+@app.route("/data", methods=["GET"])
+def data():
+    return jsonify({"users": list(users.keys())})
 
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
 
-    if not data or "username" not in data:
+    username = data.get("username")
+    if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    username = data["username"]
+    if username in users:
+        return jsonify({"error": "Username already exists"}), 409
+
     users[username] = data
+
     return jsonify({
         "message": f"User '{username}' added successfully!",
         "user": data
     }), 201
+
+
+@app.route("/users/<username>", methods=["GET"])
+def show_user(username):
+    if username in users:
+        return jsonify(users[username])
+    return jsonify({"error": "User not found"}), 404
 
 
 if __name__ == "__main__":
