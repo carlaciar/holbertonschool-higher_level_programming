@@ -28,13 +28,17 @@ def add_user():
     data = request.get_json(silent=True) or {}
 
     username = data.get("username")
-    if not username:
+
+    if not isinstance(username, str) or not username.strip():
         return jsonify({"error": "Username is required"}), 400
 
-    if username in users:
-        return jsonify({"error": "Username already exists"}), 400
+    username_key = username.strip()
 
-    users[username] = data
+    if username_key in users:
+        return jsonify({"error": "Username already exists"}), 400
+    
+    data["username"] = username_key
+    users[username_key] = data
 
     return jsonify({
         "message": "User added",
@@ -44,8 +48,9 @@ def add_user():
 
 @app.route("/users/<username>", methods=["GET"])
 def show_user(username):
-    if username in users:
-        return jsonify(users[username])
+    username_key = username.strip()
+    if username_key in users:
+        return jsonify(users[username_key])
     return jsonify({"error": "User not found"}), 404
 
 
