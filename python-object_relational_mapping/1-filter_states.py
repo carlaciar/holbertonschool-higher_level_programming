@@ -26,9 +26,9 @@ if __name__ == "__main__":
 
     # Select all states that start with 'N', sorted by id
     cur.execute(
-    "SELECT * FROM states "
-    "WHERE name LIKE BINARY 'N%' "
-    "ORDER BY id ASC"
+        "SELECT * FROM states "
+        "WHERE name LIKE BINARY 'N%' "
+        "ORDER BY id ASC"
     )
 
     # Fetch and print all matching rows
