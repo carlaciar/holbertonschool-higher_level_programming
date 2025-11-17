@@ -8,4 +8,7 @@ fetch('https://swapi-api.hbtn.io/api/films/?format=json')
       li.textContent = film.title;
       movieList.appendChild(li);
     });
+  })
+  .catch((error) => {
+    console.log('Error:', error);
   });

@@ -1,11 +1,10 @@
-const myHeader = document.body.querySelector("header");
-myHeader.style.color = "red";
+const header = document.querySelector('header');
+const toggle = document.querySelector('#toggle_header');
 
-const myClick = document.body.querySelector("#toggle_header");
-myClick.addEventListener("click", () => {
-    if (myHeader.style.color === "red") {
-        myHeader.style.color = "green";
-    }else {
-        myHeader.style.color = "red";
-    }
+toggle.addEventListener('click', () => {
+  if (header.classList.contains('red')) {
+    header.classList.replace('red', 'green');
+  } else {
+    header.classList.replace('green', 'red');
+  }
 });
