@@ -66,9 +66,33 @@ This will print the variable id:
 ```bash
 140726794751328
 ```
+
+### Assignment
+Assignment is when you give a name to an object.
+
+Example:
+```python
+a = [1, 2, 3]
+```
+Here, Python creates a list object `[1, 2, 3]` and the name `a` is assigned to that object.
+```css
+a ─────────▶ [1, 2, 3]
+```
+
+### Referencing
+Referencing is the link between the name and the object in memory.
+
+Example:
+```python
+b = a
+```
+Here, you’re creating a new reference, not a new list. `b` now points to the same object that `a` already points to.
+```css
+a ─────────▶ [1, 2, 3] ◀──────── b
+```
 <br><br>
 
-If two variables point to the same object, their id's will be the same as both variables are pointing to the same memory address like this `a ─────────▶ [1, 2, 3] ◀──────── b`.
+So, if two variables point to the same object (referencing), their id's will be the same as both variables are pointing to the same memory address.
 
 For example:
 ```python
@@ -80,7 +104,8 @@ print(id(b))    # same number
 ```
 <br><br>
 
-If the variables are not linked, the objects are different, which means their id's will also be different.
+Most of the time, if the variables are not linked, the objects are different, which means their id's will also be different.  
+_Note: this is not always the case for some immutable objects_
 
 Example:
 ```python
@@ -91,17 +116,19 @@ print(id(nums))
 print(id(other))
 ```
 Each statement will print two different variable id's, as each variable is a unique list.
+<br><br>
 
 
 ## Immutable Objects
 An immunable object is a type of object you cannot change once it's created. If you try and change it, Python creates a new object.
 
 **Immutable Types:**
-- integers
-- floats
-- strings
-- tuples
-- bools
+- number (int, float, complex)
+- string
+- tuple
+- frozen set
+- bool
+- byte
 <br><br>
 
 Example:
@@ -110,15 +137,26 @@ name = "carla"
 name = name.upper()
 ```
 Here, it looks like `"carla"` is changed to `"CARLA"`. However, what Python actually did was create a new string `"CARLA"`, and `name` now points to this new object.
+<br><br>
+
+However, for some immutable objects, like small strings and small integers, immutable objects and its address can sometimes be reused.
+
+Example:
+```python
+a = "carla"
+b = "carla"
+```
+Python may reuse the same `"carla"` object for both, so their variable id will be the same.
+
 
 ## Mutable Objects
 A mutable object is a type of object you can change after its created. You can modify it in place, without creating a new object.
 
 **Mutable Types:**
-- lists
-- dictionaries
-- sets
-- bytearrays
+- list
+- dictionarie
+- set
+- byte array
 <br><br>
 
 Example:
@@ -131,6 +169,8 @@ The same list in memory was changed. `nums` will be appended and the output will
 ```bash
 [1, 2, 3, 4]
 ```
+
+## Passing Variables to Functions
 
 
 
