@@ -3,6 +3,7 @@
 ![Everything is an object](pythonobject.png)
 
 An object in Python is like a container that holds data and knows how it behaves. It's been interesting to see how Python works, and how it handles objects in memory. I now have an understanding of how everything in Python is an object. Rather than variables storing values, it actually points to the object in memory as a reference. Every list, string, number, and even functions themselves live in memory as objects that code interacts with. Understanding this idea has helped me see how variables, references, and object behaviour actually work behind the scenes.
+<br><br>
 
 ## `type()`
 There are mutliple different types of objects. To view the type, wrap the variable inside `type()`.
@@ -52,7 +53,7 @@ Output:
 ```bash
 <class 'dict'>
 ```
-
+<br><br>
 
 ## `id()`
 In Python, every object in Python has a unique identifier, which in CPython, is the object's memory address. To display this, you can wrap your variable inside `id()`.
@@ -66,6 +67,7 @@ This will print the variable id:
 ```bash
 140726794751328
 ```
+<br><br>
 
 ### Assignment
 Assignment is when you give a name to an object using `=`.
@@ -78,6 +80,7 @@ Here, Python creates a list object `[1, 2, 3]` and the name `a` is assigned to t
 ```
 a ─────────▶ [1, 2, 3]
 ```
+<br><br>
 
 ### Referencing
 Referencing is the link between the name and the object in memory.
@@ -151,7 +154,7 @@ a = "carla"
 b = "carla"
 ```
 Python may reuse the same `"carla"` object for both, so their variable id will be the same.
-
+<br><br>
 
 ## Mutable Objects
 A mutable object is a type of object you can change after its created. You can modify it in place, without creating a new object.
@@ -173,6 +176,7 @@ The same list in memory was changed. `nums` will be appended and the output will
 ```bash
 [1, 2, 3, 4]
 ```
+<br><br>
 
 ## Aliases
 Aliases happen when two or more variable names point to the same object in memory.
@@ -183,6 +187,7 @@ x = [1, 2, 3]
 y = x
 ```
 Here, y is an alias of x. Both names refer to the same list. If one changes the list, both variables see the change.
+<br><br>
 
 ## Passing Variables to Functions
 Python handles function arguments using `pass-by-assignment`.
@@ -220,6 +225,7 @@ Outcome
 ```bash
 5
 ```
+<br><br>
 
 ## Special Case: Tuples and Frozen Sets
 Even though tuples and frozensets are immutable, they can contain mutable objects.
@@ -237,6 +243,7 @@ Outcome:
 ```bash
 ([1, 2, 4], 3)
 ```
+<br><br>
 
 ## Integer Pre-allocation in CPython
 CPython automatically creates the integers from -5 to 256 when the interpreter starts. These are reused every time they appear in your code.
